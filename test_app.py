@@ -5,7 +5,7 @@ from app import create_app
 
 @pytest.fixture
 def client():
-    app = create_app('dev')
+    app = create_app()
     app.config['TESTING'] = True
     with app.test_client() as client:
         yield client
@@ -50,7 +50,7 @@ def test_mask_ip_address():
 def test_no_text_provided(client):
     # Arrange
     payload = {}
-    expected_response = {'error': 'No key called text provided'}
+    expected_response = {'error': 'A key named text is required'}
 
     # Act
     response = client.post('/sensitive-info-mask', json=payload)
