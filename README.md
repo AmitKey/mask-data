@@ -64,6 +64,6 @@ python app.py
 ## Tests
 
 ```bash
-python test_app.py
+pytest test_app.py
 ```
 
