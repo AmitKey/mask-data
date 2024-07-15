@@ -11,7 +11,7 @@ def create_app(config_name):
     def mask_text():
         data = request.get_json()
         if not data or 'text' not in data:
-            return jsonify({'error': 'No text provided'}), 400
+            return jsonify({'error': 'No key called text provided'}), 400
 
         original_text = data['text']
         masked_text = mask_sensitive_info(original_text)

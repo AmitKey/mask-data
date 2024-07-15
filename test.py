@@ -1,5 +1,14 @@
 import pytest
 from utils.masking import mask_credit_card, mask_phone_number, mask_ip_address
+from app import create_app
+
+
+@pytest.fixture
+def client():
+    app = create_app('dev')
+    app.config['TESTING'] = True
+    with app.test_client() as client:
+        yield client
 
 
 def test_mask_credit_card():
@@ -37,3 +46,16 @@ def test_mask_ip_address():
     # Assert
     assert result == expected_output
 
+
+def test_no_text_provided(client):
+    # Arrange
+    payload = {}
+    expected_response = {'error': 'No key called text provided'}
+
+    # Act
+    response = client.post('/sensitive-info-mask', json=payload)
+    data = response.get_json()
+
+    # Assert
+    assert response.status_code == 400
+    assert data == expected_response
