@@ -29,6 +29,27 @@ The service is designed to be modular, easy to test, and extendable for addition
 - pytest
 - logging
 
+### Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/AmitKey/mask-data.git
+    cd mask-data
+    ```
+
+2. Create and activate a virtual environment:
+
+    ```bash
+    python -m venv mask-data
+    source mask-data/bin/activate  # On Windows, use `mask-data\Scripts\activate`
+    ```
+
+3. Install the required dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 ## Usage
 
@@ -36,4 +57,13 @@ The service is designed to be modular, easy to test, and extendable for addition
 To start the Flask server, run:
 
 ```bash
-python app.py
+python app.py 
+```
+
+
+## Tests
+
+```bash
+python test_app.py
+```
+

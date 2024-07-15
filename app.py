@@ -36,8 +36,8 @@ def create_app():
 
         except Exception as e:
             app.logger.error(f"Error processing request: {str(data)}")
-            # Return JSON response with error message and HTTP status 500 (Internal Server Error)
-            return jsonify({'error': 'A key named text is required'}), 500
+            # Return JSON response with error message and HTTP status 400 (Bad request)
+            return jsonify({'error': 'A key named text is required'}), 400
 
     return app
 
