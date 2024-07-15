@@ -13,6 +13,13 @@ The service is designed to be modular, easy to test, and extendable for addition
 - **Modular design**: Easily extendable to handle more types of sensitive information.
 - **Tested**: Comprehensive tests ensure the correctness of the service.
 
+
+## Logging
+
+- Logs are written to app.log in the root directory.
+- Logs valid requests and their corresponding HTTP status codes (200 OK for successful requests, 4xx for client errors).
+
+
 ## Setup and Installation
 
 ### Prerequisites
@@ -20,6 +27,7 @@ The service is designed to be modular, easy to test, and extendable for addition
 - Python 3.6 or higher
 - Flask
 - pytest
+- logging
 
 
 ## Usage
